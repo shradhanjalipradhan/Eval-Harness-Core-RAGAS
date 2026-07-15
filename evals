@@ -1,0 +1,58 @@
+import pandas 
+samples = [
+    {"query": "What is Ragas 0.3?", "grading_notes": "- Ragas 0.3 is a library for evaluating LLM applications."},
+    {"query": "How to install Ragas?", "grading_notes": "- install from source  - install from pip using ragas[examples]"},
+    {"query": "What are the main features of Ragas?", "grading_notes": "organised around - experiments - datasets - metrics."}
+]
+pd.DataFrame(samples).to_csv("datasets/test_dataset.csv", index=False)
+
+# Now we will write code to evaluate the performance of our RAG system. We will define an LLM-based metric that compares the output of our RAG system with the grading notes and outputs pass/fail based on it.
+from ragas.metrics import DiscreteMetric
+my_metric = DiscriteMetric(
+      name - 'correctness'
+      prompt = 'Check if the response contains points mentions from the grading notes and return 'pass' or 'fail'.\nResponse " {response} Grading Notes : {grading_notes}',
+      allowed_values = ['pass', 'fail']
+  )
+
+# Now we will write the exp loop that will run our RAG system on the test dataset and evaluate it using the metric, the strore the results in a CSV fil.
+@experiment()
+async def run_experiment(row):
+    response = rag_client.query (row['query'])
+
+    score = my_metric.score(
+          llm = llm,
+          response = response.get('answer' , ''),
+          grading_notes =row ['grading_notes']
+      )
+    experiment_view = {
+          **row,
+          'response': response.get('answer', ''),
+          'score': score.values,
+          'log_file': response.get('log',''),
+      }
+    return experiment_view
+
+# Now, whether you make changes to your RAG pipeline, you can run the experiment and see how it affects the performance of your RAG
+
+# Running the example end-to-end
+
+export OPENAI_API_KEY = 'your_openai_api_key'
+
+#run the evaluation
+
+python -m ragas_examples.rag_eval.evals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
