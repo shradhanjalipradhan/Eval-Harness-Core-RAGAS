@@ -1,2 +1,1 @@
-#creating your first QA pipeline with RAG
-# this taches how to create a generative quruon-answer pipeline using the RAG with haystack
+# This teaches how to create a generative question-answer pipeline using the RAG with Haystack
