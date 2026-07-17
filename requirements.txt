@@ -1,0 +1,4 @@
+haystack-ai
+transformers-haystack
+sentence-transformers-haystack
+datasets>=2.6.1
