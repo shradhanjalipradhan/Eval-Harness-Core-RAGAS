@@ -1,4 +1,21 @@
-haystack-ai
-transformers-haystack
-sentence-transformers-haystack
-datasets>=2.6.1
+python-dotenv
+
+langchain
+langchain-community
+langchain-core
+
+#LLM
+langchain-groq
+langchain-text-splitters
+
+## vector store
+
+faiss-cpu
+
+## notebook
+
+jupyter
+ipykernel
+
+## webapp
+streamlit
