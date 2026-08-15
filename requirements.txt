@@ -19,3 +19,9 @@ ipykernel
 
 ## webapp
 streamlit
+
+
+# vector store
+
+langchain-qdrant
+qdrant-client
