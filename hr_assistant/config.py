@@ -25,8 +25,6 @@ LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT")
 
 
 
-
-
 ## DEFINE PATH - DATA / VECTOR STORE 
 
 DATA_FILE_PATH = os.path.join("data", "hr_policy.txt")
